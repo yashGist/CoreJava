@@ -10,7 +10,7 @@ public class PrintTable {
 			for (int j = 1; j < 10; j++) {
 				tab = table * j;
 				array[i][j] = tab;
-				System.out.println(array[i][j]);
+				System.out.print(array[i][j] + " ");
 			}
 
 		}
