@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+   
+   function getContent(){
+      var xmlHttp= getXmlHttpObject();
+      xmlHttp.open("GET",url,true);
+      xmlHttp.onreadystagechange= function(){
+        if(xmlHttp.readyState==4 && xmlHttp.status==200){
+          var count = xmlHttp.responseText;
+          document.getElementById('bodyText').innerHTML=count;
+        }
+      }
+      xmlHttp.send(null);
+    }
+
+
+    function getXmlHttpObject(){
+      var xmlHttp=null;
+      try {
+        xmlHttp = new XMLHttpRequest();
+      } catch (e) {
+        try {
+          xmlHttp= new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+          
+          xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      }
+      return xmlHttp;
+    }
+  </script>
+</head>
+<body>
+  <input type="radio" name="site" onclick="getContent('App/Guest')">
+  <TD id="bodyText">Ajax will be replaced here..</TD>
+</body>
+</html>
