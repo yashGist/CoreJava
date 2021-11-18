@@ -12,8 +12,15 @@ function buttonClickHandler() {
 
     }
     xhr.onload = function () {
+        console.log("inside onload....");
         let obj = JSON.parse (this.responseText);
         console.log(obj);
+        let list = document.getElementById('list');
+	        str = "";
+	        for(key in obj){
+	        	str+=`<li> ${obj[key]} </li>` ;
+	        }
+	        list.innerHTML= str;
     }
     xhr.send(); 
     console.log("we are done fetching.");
